@@ -1,12 +1,12 @@
 package com.doctorya.Demo.domain.model;
 
 import com.doctorya.Demo.domain.model.buildModel.AbstractBuilder;
-import com.doctorya.Demo.domain.model.valueObjs.commons.Date;
+import com.doctorya.Demo.domain.model.valueObjs.DateTime;
 import com.doctorya.Demo.domain.model.valueObjs.commons.Id;
 
 public class Schedule {
     private final Id id;
-    private final Date date;
+    private final DateTime date;
     private final Doctor doctor;
 
     private Schedule(Builder builder) {
@@ -19,7 +19,7 @@ public class Schedule {
         return id;
     }
 
-    public Date getDate() {
+    public DateTime getDate() {
         return date;
     }
 
@@ -29,7 +29,7 @@ public class Schedule {
 
     public static class Builder extends AbstractBuilder<Schedule>{
         private Id id;
-        private Date date;
+        private DateTime date;
         private Doctor doctor;
 
         public Builder id(Id id){
@@ -37,7 +37,7 @@ public class Schedule {
             return this;
         }
 
-        public Builder date(Date date){
+        public Builder date(DateTime date){
             this.date = date;
             return this;
         }

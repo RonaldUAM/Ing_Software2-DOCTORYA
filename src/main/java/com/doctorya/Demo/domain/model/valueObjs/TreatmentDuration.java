@@ -1,16 +1,16 @@
 package com.doctorya.Demo.domain.model.valueObjs;
 
 public class TreatmentDuration {
-    private final Integer value;
+    private final String value;
 
-    public TreatmentDuration(Integer value) {
-        if (value.equals(0) || value != null ){
+    public TreatmentDuration(String value) {
+        if (value.isBlank()){
             throw new IllegalArgumentException("The TreatmentDuration value cannot be Null");
         }
         this.value = value;
     }
 
-    public Integer getValue() {
+    public String getValue() {
         return value;
     }
 }
