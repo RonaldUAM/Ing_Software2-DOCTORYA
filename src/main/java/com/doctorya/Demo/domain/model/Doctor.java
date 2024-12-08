@@ -9,7 +9,7 @@ public class Doctor {
     private final Id id;
     private final Name name;
     private final Identification identification;
-    private final MedicalLicense medicalLicense;
+    private final MedicalLicense medicalLicense;//null
     private final Specialty specialty;
     private final Email emaill;
     private final Phone phone;

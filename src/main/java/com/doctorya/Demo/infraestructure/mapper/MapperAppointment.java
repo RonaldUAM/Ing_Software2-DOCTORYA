@@ -23,4 +23,16 @@ public class MapperAppointment {
                 .doctor(mapperDoctor.toDo(appointmentData.getDoctor()))
                 .build();
     }
+
+    public AppointmentData toData(Appointment appointment){
+        return new AppointmentData().toBuilder()
+                .id(appointment.getId().getValue())
+                .date(appointment.getDate().getValue())
+                .time(appointment.getTime().getValue())
+                .reason(appointment.getReason().getValue())
+                .status(appointment.getStatus().getValue())
+                .patient(mapperPatient.toData(appointment.getPatient()))
+                .doctor(mapperDoctor.toData(appointment.getDoctor()))
+                .build();
+    }
 }

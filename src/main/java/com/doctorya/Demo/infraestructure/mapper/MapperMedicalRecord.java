@@ -26,4 +26,16 @@ public class MapperMedicalRecord {
                 .appointment(mapperAppointment.toDo(medicalRecordData.getAppointmentData()))
                 .build();
     }
+
+    public MedicalRecordData toData(MedicalRecord medicalRecord){
+        return new MedicalRecordData().toBuilder()
+                .id(medicalRecord.getId() == null ? Long.getLong("") : medicalRecord.getId().getValue())
+                .date(medicalRecord.getDate().getValue())
+                .symptoms(medicalRecord.getSymptoms().getValue())
+                .diagnosis(medicalRecord.getDiagnosis().getValue())
+                .treatment(medicalRecord.getTreatment().getValue())
+                .observations(medicalRecord.getObservation().getValue())
+                .appointmentData(mapperAppointment.toData(medicalRecord.getAppointment()))
+                .build();
+    }
 }

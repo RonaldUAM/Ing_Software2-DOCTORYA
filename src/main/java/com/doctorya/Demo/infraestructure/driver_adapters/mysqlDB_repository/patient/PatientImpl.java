@@ -6,6 +6,7 @@ import com.doctorya.Demo.infraestructure.mapper.MapperPatient;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -17,5 +18,20 @@ public class PatientImpl implements PatientGateway {
     public Patient findById(Long id) {
         Optional<PatientData> patientData = repository.findById(id);
         return patientData.isEmpty() ? new Patient.Builder().build() : mapper.toDo(patientData.get());
+    }
+
+    @Override
+    public Patient saveOrUpdate(Patient patient) {
+        return mapper.toDo(repository.save(mapper.toData(patient)));
+    }
+
+    @Override
+    public List<Patient> findAll() {
+        return repository.findAll().stream().map(mapper::toDo).toList();
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        repository.deleteById(id);
     }
 }

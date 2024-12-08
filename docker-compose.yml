@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  database:
+    image: mysql:8.0
+    container_name: BD_Doctorya
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: DoctorYa
+      MYSQL_USER: doctorUser
+      MYSQL_PASSWORD: 123doctorya
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks:
+      - spring_network
+
+  app:
+    image: doctorya_app:latest
+    container_name: doctorya-app
+    depends_on:
+      - database
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://database:3306/DoctorYa
+      SPRING_DATASOURCE_USERNAME: doctorUser
+      SPRING_DATASOURCE_PASSWORD: 123doctorya
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    networks:
+      - spring_network
+
+volumes:
+  db_data:
+
+networks:
+  spring_network:

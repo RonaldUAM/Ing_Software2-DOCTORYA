@@ -3,6 +3,7 @@ package com.doctorya.Demo.infraestructure.driver_adapters.mysqlDB_repository.sch
 import com.doctorya.Demo.infraestructure.driver_adapters.mysqlDB_repository.doctor.DoctorData;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+@Builder(toBuilder = true)
 public class ScheduleData {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

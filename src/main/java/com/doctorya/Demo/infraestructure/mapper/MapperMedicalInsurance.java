@@ -22,4 +22,15 @@ public class MapperMedicalInsurance {
                 .contactPhone(new ContactPhone(medicalInsuranceData.getContact_phone()))
                 .build();
     }
+
+    public MedicalInsuranceData toData(MedicalInsurance medicalInsurance){
+        return new MedicalInsuranceData().toBuilder()
+                .id(medicalInsurance.getId() == null ?  Long.getLong("") : medicalInsurance.getId().getValue())
+                .name(medicalInsurance.getName().getvalue())
+                .type(medicalInsurance.getType().getValue())
+                .start_date(medicalInsurance.getStartDate().getValue())
+                .end_date(medicalInsurance.getEndDate().getValue())
+                .contact_phone(medicalInsurance.getContactPhone().getValue())
+                .build();
+    }
 }

@@ -10,7 +10,7 @@ public class Name {
         this.nvalue = nvalue;
     }
 
-    public String getNvalue() {
+    public String getvalue() {
         return nvalue;
     }
 }
