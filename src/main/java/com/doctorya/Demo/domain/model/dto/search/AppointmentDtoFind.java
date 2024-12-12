@@ -1,13 +1,14 @@
-package com.doctorya.Demo.domain.model.dto;
+package com.doctorya.Demo.domain.model.dto.search;
 
 import com.doctorya.Demo.domain.model.buildModel.AbstractBuilder;
-import com.doctorya.Demo.domain.model.valueObjs.commons.Date;
+import com.doctorya.Demo.domain.model.dto.commons.DoctorDto;
+import com.doctorya.Demo.domain.model.dto.commons.PatientDto;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class AppointmentDto implements Serializable {
+public class AppointmentDtoFind implements Serializable {
     private Long id;
     private LocalDate date;
     private LocalTime time;
@@ -16,10 +17,10 @@ public class AppointmentDto implements Serializable {
     private PatientDto patientDto;
     private DoctorDto doctorDto;
 
-    public AppointmentDto() {
+    public AppointmentDtoFind() {
     }
 
-    private AppointmentDto(Builder builder) {
+    private AppointmentDtoFind(Builder builder) {
         this.id = builder.id;
         this.date = builder.date;
         this.time = builder.time;
@@ -57,7 +58,7 @@ public class AppointmentDto implements Serializable {
         return doctorDto;
     }
 
-    public static class Builder extends AbstractBuilder<AppointmentDto>{
+    public static class Builder extends AbstractBuilder<AppointmentDtoFind>{
         private Long id;
         private LocalDate date;
         private LocalTime time;
@@ -102,8 +103,8 @@ public class AppointmentDto implements Serializable {
         }
 
         @Override
-        public AppointmentDto build() {
-            return new AppointmentDto(this);
+        public AppointmentDtoFind build() {
+            return new AppointmentDtoFind(this);
         }
     }
 }

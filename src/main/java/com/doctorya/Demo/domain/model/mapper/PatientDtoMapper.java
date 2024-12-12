@@ -1,7 +1,7 @@
 package com.doctorya.Demo.domain.model.mapper;
 
 import com.doctorya.Demo.domain.model.Patient;
-import com.doctorya.Demo.domain.model.dto.PatientDto;
+import com.doctorya.Demo.domain.model.dto.commons.PatientDto;
 import com.doctorya.Demo.domain.model.valueObjs.Address;
 import com.doctorya.Demo.domain.model.valueObjs.BirthDay;
 import com.doctorya.Demo.domain.model.valueObjs.Gender;
@@ -25,6 +25,12 @@ public class PatientDtoMapper {
                 .email(new Email(patientDto.getEmail()))
                 .phone(new Phone(patientDto.getPhone()))
                 .medicalInsurance(insuranceDtoMapper.toDoMedicalInsurance(patientDto.getInsurance()))
+                .build();
+    }
+
+    public Patient toDoPatientFind(PatientDto patientDto){
+        return new Patient.Builder()
+                .id(patientDto.getId() == null ? new Id() : new Id(patientDto.getId()))
                 .build();
     }
 

@@ -1,7 +1,7 @@
 package com.doctorya.Demo.domain.model.mapper;
 
 import com.doctorya.Demo.domain.model.MedicalInsurance;
-import com.doctorya.Demo.domain.model.dto.MedicalInsuranceDto;
+import com.doctorya.Demo.domain.model.dto.commons.MedicalInsuranceDto;
 import com.doctorya.Demo.domain.model.valueObjs.ContactPhone;
 import com.doctorya.Demo.domain.model.valueObjs.EndDate;
 import com.doctorya.Demo.domain.model.valueObjs.StartDate;

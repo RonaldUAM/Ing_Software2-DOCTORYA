@@ -10,6 +10,7 @@ import java.util.List;
 
 public interface AppointmentGateway {
     List<Appointment> findByPatient(Long patient_id);
+    Appointment findById(Long id);
     List<Appointment> findAll();
     List<Doctor> findDoctorByAppointment(LocalTime time, LocalDate date);
     Boolean existsByDoctorAndDateAndTime(Appointment appointment);

@@ -1,7 +1,7 @@
 package com.doctorya.Demo.domain.usecase;
 
 import com.doctorya.Demo.domain.model.MedicalInsurance;
-import com.doctorya.Demo.domain.model.dto.MedicalInsuranceDto;
+import com.doctorya.Demo.domain.model.dto.commons.MedicalInsuranceDto;
 import com.doctorya.Demo.domain.model.gateways.MedicalInsuranceGateway;
 import com.doctorya.Demo.domain.model.mapper.MedicalInsuranceDtoMapper;
 import lombok.RequiredArgsConstructor;

@@ -1,7 +1,7 @@
 package com.doctorya.Demo.domain.usecase;
 
 import com.doctorya.Demo.domain.model.Doctor;
-import com.doctorya.Demo.domain.model.dto.DoctorDto;
+import com.doctorya.Demo.domain.model.dto.commons.DoctorDto;
 import com.doctorya.Demo.domain.model.gateways.DoctorGateway;
 import com.doctorya.Demo.domain.model.mapper.DoctorDtoMapper;
 import lombok.RequiredArgsConstructor;

@@ -1,5 +1,6 @@
 package com.doctorya.Demo.application.config;
 
+import com.doctorya.Demo.domain.model.gateways.AppointmentGateway;
 import com.doctorya.Demo.domain.model.gateways.MedicalRecordGateway;
 import com.doctorya.Demo.domain.model.mapper.AppointmentDtoMapper;
 import com.doctorya.Demo.domain.model.mapper.MedicalRecordDtoMapper;
@@ -16,7 +17,7 @@ public class MedicalRecordConfig {
     }
 
     @Bean
-    public MedicalRecordUseCase medicalRecordUseCase(MedicalRecordGateway medicalRecordGateway, MedicalRecordDtoMapper medicalRecordDtoMapper){
-        return new MedicalRecordUseCase(medicalRecordGateway,medicalRecordDtoMapper);
+    public MedicalRecordUseCase medicalRecordUseCase(MedicalRecordGateway medicalRecordGateway, AppointmentGateway appointmentGateway, MedicalRecordDtoMapper medicalRecordDtoMapper){
+        return new MedicalRecordUseCase(medicalRecordGateway,appointmentGateway,medicalRecordDtoMapper);
     }
 }

@@ -1,4 +1,4 @@
-package com.doctorya.Demo.domain.model.dto;
+package com.doctorya.Demo.domain.model.dto.commons;
 
 import com.doctorya.Demo.domain.model.buildModel.AbstractBuilder;
 

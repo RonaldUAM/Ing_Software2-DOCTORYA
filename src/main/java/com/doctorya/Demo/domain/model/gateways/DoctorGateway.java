@@ -1,7 +1,6 @@
 package com.doctorya.Demo.domain.model.gateways;
 
 import com.doctorya.Demo.domain.model.Doctor;
-import com.doctorya.Demo.domain.model.dto.DoctorDto;
 
 import java.util.List;
 

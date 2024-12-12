@@ -2,7 +2,7 @@ package com.doctorya.Demo.domain.usecase;
 
 import com.doctorya.Demo.domain.model.MedicalInsurance;
 import com.doctorya.Demo.domain.model.Patient;
-import com.doctorya.Demo.domain.model.dto.PatientDto;
+import com.doctorya.Demo.domain.model.dto.commons.PatientDto;
 import com.doctorya.Demo.domain.model.gateways.PatientGateway;
 import com.doctorya.Demo.domain.model.mapper.PatientDtoMapper;
 import lombok.RequiredArgsConstructor;

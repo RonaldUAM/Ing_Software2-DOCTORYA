@@ -1,7 +1,10 @@
 package com.doctorya.Demo.domain.usecase;
 
+import com.doctorya.Demo.domain.model.Appointment;
 import com.doctorya.Demo.domain.model.MedicalRecord;
-import com.doctorya.Demo.domain.model.dto.MedicalRecordDto;
+import com.doctorya.Demo.domain.model.dto.create.MedicalRecordDtoCreate;
+import com.doctorya.Demo.domain.model.dto.search.MedicalRecordDtoFind;
+import com.doctorya.Demo.domain.model.gateways.AppointmentGateway;
 import com.doctorya.Demo.domain.model.gateways.MedicalRecordGateway;
 import com.doctorya.Demo.domain.model.mapper.MedicalRecordDtoMapper;
 import lombok.RequiredArgsConstructor;
@@ -11,12 +14,14 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 public class MedicalRecordUseCase {
     private final MedicalRecordGateway medicalRecordGateway;
+    private final AppointmentGateway appointmentGateway;
     private final MedicalRecordDtoMapper medicalRecordDtoMapper;
 
-    public MedicalRecordDto save(MedicalRecordDto medicalRecord){
+    public MedicalRecordDtoFind save(MedicalRecordDtoCreate medicalRecordDtoCreate){
         try {
-            MedicalRecord medicalRecord1 = medicalRecordGateway.saveOrUpdate(medicalRecordDtoMapper.toMedicalRecord(medicalRecord));
-            if (medicalRecord.getId() == null || medicalRecord.getId().equals(Long.getLong(""))){
+            Appointment appointment = appointmentGateway.findById(medicalRecordDtoCreate.getAppointmentDto());
+            MedicalRecord medicalRecord1 = medicalRecordGateway.saveOrUpdate(medicalRecordDtoMapper.toMedicalRecordCreate(medicalRecordDtoCreate,appointment));
+            if (medicalRecordDtoCreate.getId() == null || medicalRecordDtoCreate.getId().equals(Long.getLong(""))){
                 log.info("Medical Record Create...");
             }else {
                 log.info("Medical Record Update...");
@@ -24,7 +29,7 @@ public class MedicalRecordUseCase {
             return medicalRecordDtoMapper.toDo(medicalRecord1);
         } catch (Exception e) {
             log.error(e.getMessage());
-            return new MedicalRecordDto();
+            return new MedicalRecordDtoFind();
         }
     }
 

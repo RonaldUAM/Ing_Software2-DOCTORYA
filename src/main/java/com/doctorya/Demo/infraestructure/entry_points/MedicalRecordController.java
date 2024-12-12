@@ -1,6 +1,7 @@
 package com.doctorya.Demo.infraestructure.entry_points;
 
-import com.doctorya.Demo.domain.model.dto.MedicalRecordDto;
+import com.doctorya.Demo.domain.model.dto.create.MedicalRecordDtoCreate;
+import com.doctorya.Demo.domain.model.dto.search.MedicalRecordDtoFind;
 import com.doctorya.Demo.domain.usecase.MedicalRecordUseCase;
 import com.doctorya.Demo.infraestructure.wrapper.Wrapper;
 import lombok.AllArgsConstructor;
@@ -19,12 +20,12 @@ public class MedicalRecordController {
     private final MedicalRecordUseCase medicalRecordUseCase;
 
     @PostMapping()
-    public ResponseEntity<Wrapper<MedicalRecordDto>> save(MedicalRecordDto medicalRecordDto){
-        MedicalRecordDto medicalRecordDto1 = medicalRecordUseCase.save(medicalRecordDto);
-        if (medicalRecordDto1.getDate() == null){
+    public ResponseEntity<Wrapper<MedicalRecordDtoFind>> save(MedicalRecordDtoCreate medicalRecordDtoCreate){
+        MedicalRecordDtoFind medicalRecordDtoFind1 = medicalRecordUseCase.save(medicalRecordDtoCreate);
+        if (medicalRecordDtoFind1.getDate() == null){
             return new ResponseEntity<>(new Wrapper<>("MedicalRecord ",List.of()),HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>(new Wrapper<>("MedicalRecord ", List.of(medicalRecordDto1)), HttpStatus.CREATED);
+        return new ResponseEntity<>(new Wrapper<>("MedicalRecord ", List.of(medicalRecordDtoFind1)), HttpStatus.CREATED);
     }
 
     @GetMapping("/delete")

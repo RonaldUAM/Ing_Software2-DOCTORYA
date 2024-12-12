@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
@@ -24,6 +25,11 @@ public class AppointmentDataImpl implements AppointmentGateway {
     @Override
     public List<Appointment> findByPatient(Long patient_id) {
         return repository.findByPatient_Id(patient_id).stream().map(mapper::toDo).toList();
+    }
+
+    @Override
+    public Appointment findById(Long id) {
+        return mapper.toDo(repository.findById(id).orElseGet(AppointmentData::new));
     }
 
     @Override

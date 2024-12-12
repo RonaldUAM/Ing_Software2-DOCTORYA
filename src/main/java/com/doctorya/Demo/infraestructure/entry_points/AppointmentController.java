@@ -1,7 +1,8 @@
 package com.doctorya.Demo.infraestructure.entry_points;
 
-import com.doctorya.Demo.domain.model.dto.AppointmentDto;
-import com.doctorya.Demo.domain.model.dto.DoctorDto;
+import com.doctorya.Demo.domain.model.dto.create.AppointmentDtoCreate;
+import com.doctorya.Demo.domain.model.dto.search.AppointmentDtoFind;
+import com.doctorya.Demo.domain.model.dto.commons.DoctorDto;
 import com.doctorya.Demo.domain.usecase.AppointmentUseCase;
 import com.doctorya.Demo.infraestructure.wrapper.Wrapper;
 import lombok.RequiredArgsConstructor;
@@ -22,18 +23,18 @@ public class AppointmentController {
     private final AppointmentUseCase appointmentUseCase;
 
     @GetMapping
-    public ResponseEntity<Wrapper<AppointmentDto>> findAll(){
+    public ResponseEntity<Wrapper<AppointmentDtoFind>> findAll(){
         return new ResponseEntity<>(new Wrapper<>("Appointment's ",appointmentUseCase.findAll()),HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<Wrapper<AppointmentDto>> createAppointmet(@RequestBody AppointmentDto appointmentDto){
-        AppointmentDto appointmentDto1 = appointmentUseCase.createAppointment(appointmentDto);
-        if (appointmentDto1.getId() == null){
+    public ResponseEntity<Wrapper<AppointmentDtoFind>> createAppointmet(@RequestBody AppointmentDtoCreate appointmentDtoCreate){
+        AppointmentDtoFind appointmentDtoFind1 = appointmentUseCase.createAppointment(appointmentDtoCreate);
+        if (appointmentDtoFind1.getId() == null){
             return new ResponseEntity<>(new Wrapper<>("Appointment", List.of()), HttpStatus.NOT_ACCEPTABLE);
 
         }
-        return new ResponseEntity<>(new Wrapper<>("Appoinment", List.of(appointmentDto1)),HttpStatus.CREATED);
+        return new ResponseEntity<>(new Wrapper<>("Appoinment", List.of(appointmentDtoFind1)),HttpStatus.CREATED);
     }
 
     @GetMapping("/searchDoctorAvailable")
@@ -46,7 +47,7 @@ public class AppointmentController {
     }
 
     @GetMapping("/searchAppoinmentPatient")
-    public ResponseEntity<Wrapper<AppointmentDto>> findByPatient(@RequestParam("patient_id") Long patient_id){
+    public ResponseEntity<Wrapper<AppointmentDtoFind>> findByPatient(@RequestParam("patient_id") Long patient_id){
         return new ResponseEntity<>(new Wrapper<>("Appointment -> [Patient]",appointmentUseCase.findByPatient(patient_id)),HttpStatus.OK);
     }
 }//MEDICALRECORD

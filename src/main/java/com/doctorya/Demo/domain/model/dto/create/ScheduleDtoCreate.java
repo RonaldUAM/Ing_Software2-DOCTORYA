@@ -1,19 +1,19 @@
-package com.doctorya.Demo.domain.model.dto;
+package com.doctorya.Demo.domain.model.dto.create;
 
 import com.doctorya.Demo.domain.model.buildModel.AbstractBuilder;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class ScheduleDto implements Serializable {
+public class ScheduleDtoCreate implements Serializable {
     private Long id;
     private LocalDateTime date;
-    private DoctorDto doctorDto;
+    private Long doctorId;
 
-    public ScheduleDto(Builder builder) {
+    public ScheduleDtoCreate(Builder builder) {
         this.id = builder.id;
         this.date = builder.date;
-        this.doctorDto = builder.doctorDto;
+        this.doctorId = builder.doctorId;
     }
 
     public Long getId() {
@@ -24,18 +24,18 @@ public class ScheduleDto implements Serializable {
         return date;
     }
 
-    public DoctorDto getDoctorDto() {
-        return doctorDto;
+    public Long getDoctorId() {
+        return doctorId;
     }
 
-    public void setDoctorDto(DoctorDto doctorDto) {
-        this.doctorDto = doctorDto;
+    public void setDoctorDto(Long doctorId) {
+        this.doctorId = doctorId;
     }
 
-    public static class Builder extends AbstractBuilder<ScheduleDto>{
+    public static class Builder extends AbstractBuilder<ScheduleDtoCreate>{
         private Long id;
         private LocalDateTime date;
-        private DoctorDto doctorDto;
+        private Long doctorId;
 
         public Builder id(Long id){
             this.id = id;
@@ -47,14 +47,14 @@ public class ScheduleDto implements Serializable {
             return this;
         }
 
-        public Builder doctor(DoctorDto doctorDto){
-            this.doctorDto = doctorDto;
+        public Builder doctor(Long doctorId){
+            this.doctorId = doctorId;
             return this;
         }
 
         @Override
-        public ScheduleDto build() {
-            return new ScheduleDto(this);
+        public ScheduleDtoCreate build() {
+            return new ScheduleDtoCreate(this);
         }
     }
 }

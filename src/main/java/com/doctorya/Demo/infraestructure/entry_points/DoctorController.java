@@ -1,6 +1,6 @@
 package com.doctorya.Demo.infraestructure.entry_points;
 
-import com.doctorya.Demo.domain.model.dto.DoctorDto;
+import com.doctorya.Demo.domain.model.dto.commons.DoctorDto;
 import com.doctorya.Demo.domain.usecase.DoctorUseCase;
 import com.doctorya.Demo.infraestructure.wrapper.Wrapper;
 import lombok.RequiredArgsConstructor;

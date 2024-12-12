@@ -1,7 +1,5 @@
 package com.doctorya.Demo.application.config;
 
-import com.doctorya.Demo.domain.model.dto.PatientDto;
-import com.doctorya.Demo.domain.model.gateways.MedicalInsuranceGateway;
 import com.doctorya.Demo.domain.model.gateways.PatientGateway;
 import com.doctorya.Demo.domain.model.mapper.*;
 import com.doctorya.Demo.domain.usecase.MedicalInsuranceUseCase;

@@ -1,30 +1,31 @@
-package com.doctorya.Demo.domain.model.dto;
+package com.doctorya.Demo.domain.model.dto.create;
 
 import com.doctorya.Demo.domain.model.buildModel.AbstractBuilder;
+import com.doctorya.Demo.domain.model.dto.search.AppointmentDtoFind;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 
-public class MedicalRecordDto implements Serializable {
+public class MedicalRecordDtoCreate implements Serializable {
     private Long id;
     private LocalDate date;
     private String symptoms;
     private String diagnosis;
     private String treatment;
     private String observations;
-    private AppointmentDto appointmentDto;
+    private Long appointmentId;
 
-    public MedicalRecordDto() {
+    public MedicalRecordDtoCreate() {
     }
 
-    private MedicalRecordDto(Builder builder) {
+    private MedicalRecordDtoCreate(Builder builder) {
         this.id = builder.id;
         this.date = builder.date;
         this.symptoms = builder.symptoms;
         this.diagnosis = builder.diagnosis;
         this.treatment = builder.treatment;
         this.observations = builder.observations;
-        this.appointmentDto = builder.appointmentDto;
+        this.appointmentId = builder.appointmentId;
     }
 
     public Long getId() {
@@ -51,11 +52,11 @@ public class MedicalRecordDto implements Serializable {
         return observations;
     }
 
-    public AppointmentDto getAppointmentDto() {
-        return appointmentDto;
+    public Long getAppointmentDto() {
+        return appointmentId;
     }
 
-    public static class Builder extends AbstractBuilder<MedicalRecordDto>{
+    public static class Builder extends AbstractBuilder<MedicalRecordDtoCreate>{
 
         private Long id;
         private LocalDate date;
@@ -63,7 +64,7 @@ public class MedicalRecordDto implements Serializable {
         private String diagnosis;
         private String treatment;
         private String observations;
-        private AppointmentDto appointmentDto;
+        private Long appointmentId;
 
         public Builder id(Long id){
             this.id = id;
@@ -95,14 +96,14 @@ public class MedicalRecordDto implements Serializable {
             return this;
         }
 
-        public Builder appointment(AppointmentDto appointmentDto){
-            this.appointmentDto = appointmentDto;
+        public Builder appointment(Long appointmentId){
+            this.appointmentId = appointmentId;
             return this;
         }
 
         @Override
-        public MedicalRecordDto build() {
-            return new MedicalRecordDto(this);
+        public MedicalRecordDtoCreate build() {
+            return new MedicalRecordDtoCreate(this);
         }
     }
 }

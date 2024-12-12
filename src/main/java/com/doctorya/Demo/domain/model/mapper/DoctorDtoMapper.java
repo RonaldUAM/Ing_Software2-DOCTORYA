@@ -1,7 +1,7 @@
 package com.doctorya.Demo.domain.model.mapper;
 
 import com.doctorya.Demo.domain.model.Doctor;
-import com.doctorya.Demo.domain.model.dto.DoctorDto;
+import com.doctorya.Demo.domain.model.dto.commons.DoctorDto;
 import com.doctorya.Demo.domain.model.valueObjs.MedicalLicense;
 import com.doctorya.Demo.domain.model.valueObjs.Specialty;
 import com.doctorya.Demo.domain.model.valueObjs.commons.*;
