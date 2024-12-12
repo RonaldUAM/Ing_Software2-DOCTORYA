@@ -6,8 +6,11 @@ public class Identification {
     public Identification(String value) {
         if (value.isBlank()){
             throw new IllegalArgumentException("The Identification value cannot be Null");
+        }else if(value.equals(".")){
+            this.value = "";
+        }else{
+            this.value = value;
         }
-        this.value = value;
     }
 
     public String getValue() {

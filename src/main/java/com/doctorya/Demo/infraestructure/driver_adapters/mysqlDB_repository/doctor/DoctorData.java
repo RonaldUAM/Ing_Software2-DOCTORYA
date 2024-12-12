@@ -2,6 +2,7 @@ package com.doctorya.Demo.infraestructure.driver_adapters.mysqlDB_repository.doc
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -10,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
+@Builder(toBuilder = true)
 public class DoctorData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -9,4 +9,8 @@ public class Treatment {
         }
         this.value = value;
     }
+
+    public String getValue() {
+        return value;
+    }
 }

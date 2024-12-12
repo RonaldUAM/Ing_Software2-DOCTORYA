@@ -17,6 +17,16 @@ public class MapperSchedule {
                 .build();
     }
 
+    public ScheduleData toData(Schedule schedule){
+        return new ScheduleData().toBuilder()
+                .id(schedule.getId().getValue())
+                .day(schedule.getDate().getValue().getDayOfMonth())
+                .hour(schedule.getDate().getValue().getHour())
+                .month(schedule.getDate().getValue().getMonthValue())
+                .year(schedule.getDate().getValue().getYear())
+                .build();
+    }
+
     private DateTime convertDate(Integer hour, Integer day, Integer month, Integer year){
         return new DateTime(LocalDateTime.of(year,month,day,hour,0));
     }

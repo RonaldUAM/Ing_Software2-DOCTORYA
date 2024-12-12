@@ -15,7 +15,7 @@ public class Patient {
     private final Address address;
     private final Email email;
     private final Phone phone;
-    private final MedicalInsurance insurance;
+    private MedicalInsurance insurance;
 
     private Patient(Builder builder) {
         this.id = builder.id;
@@ -63,6 +63,10 @@ public class Patient {
 
     public MedicalInsurance getInsurance() {
         return insurance;
+    }
+
+    public void setInsurance(MedicalInsurance insurance) {
+        this.insurance = insurance;
     }
 
     public static class Builder extends AbstractBuilder<Patient>{

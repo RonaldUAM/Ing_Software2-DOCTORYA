@@ -9,13 +9,16 @@ import com.doctorya.Demo.domain.model.valueObjs.commons.Diagnosis;
 import com.doctorya.Demo.domain.model.valueObjs.commons.Id;
 
 public class MedicalRecord {
-    private final Id id;
-    private final Date date;
-    private final Symptoms symptoms;
-    private final Diagnosis diagnosis;
-    private final Treatment treatment;
-    private final Observation observation;
-    private final Appointment appointment;
+    private Id id;
+    private Date date;
+    private Symptoms symptoms;
+    private Diagnosis diagnosis;
+    private Treatment treatment;
+    private Observation observation;
+    private Appointment appointment;
+
+    public MedicalRecord() {
+    }
 
     private MedicalRecord(Builder builder) {
         this.id = builder.id;

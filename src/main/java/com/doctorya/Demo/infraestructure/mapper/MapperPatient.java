@@ -21,9 +21,23 @@ public class MapperPatient {
                 .birthDay(new BirthDay(patientData.getBirth_date()))
                 .gender(new Gender(patientData.getGender()))
                 .address(new Address(patientData.getAddress()))
-                .email(new Email(patientData.getAddress()))
+                .email(new Email(patientData.getEmail()))
                 .phone(new Phone(patientData.getPhone()))
                 .medicalInsurance(mapperMedicalInsurance.toDo(patientData.getMedicalInsuranceData()))
+                .build();
+    }
+
+    public PatientData toData(Patient patient){
+        return new PatientData().toBuilder()
+                .id(patient.getId() == null ? Long.getLong("") : patient.getId().getValue())
+                .name(patient.getName().getvalue())
+                .identification(patient.getIdentification().getValue())
+                .birth_date(patient.getBirthDay().getValue())
+                .gender(patient.getGender().getValue())
+                .address(patient.getAddress().getValue())
+                .email(patient.getEmail().getValue())
+                .phone(patient.getPhone().getValue())
+                .medicalInsuranceData(mapperMedicalInsurance.toData(patient.getInsurance()))
                 .build();
     }
 }

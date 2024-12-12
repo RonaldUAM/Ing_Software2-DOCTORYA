@@ -1,16 +1,19 @@
 package com.doctorya.Demo.domain.model.valueObjs.commons;
 
 public class Name {
-    private final String nvalue;
+    private String value;
 
-    public Name(String nvalue) {
-        if (nvalue.isBlank()){
-            throw new IllegalArgumentException("The Name value cannot be Null");
+    public Name(String value) {
+        if (value.isBlank()){
+            throw new IllegalArgumentException("The Name value  be Null");
+        }else if(value.equals(".")){
+            this.value = "";
+        }else{
+            this.value = value;
         }
-        this.nvalue = nvalue;
     }
 
-    public String getNvalue() {
-        return nvalue;
+    public String getvalue() {
+        return value;
     }
 }

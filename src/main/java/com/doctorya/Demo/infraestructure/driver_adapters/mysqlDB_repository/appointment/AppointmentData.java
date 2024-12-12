@@ -4,15 +4,18 @@ import com.doctorya.Demo.infraestructure.driver_adapters.mysqlDB_repository.doct
 import com.doctorya.Demo.infraestructure.driver_adapters.mysqlDB_repository.patient.PatientData;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Entity
 @Table(name = "Appointments")
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder(toBuilder = true)
 @Getter
 public class AppointmentData {
     @Id
@@ -20,7 +23,7 @@ public class AppointmentData {
     private Long id;
 
     private LocalDate date;
-    private Integer time;
+    private LocalTime time;
     private String reason;
     private String status;
 

@@ -1,16 +1,18 @@
 package com.doctorya.Demo.domain.model.valueObjs;
 
-public class Time {
-    private final Integer value;
+import java.time.LocalTime;
 
-    public Time(Integer value) {
-        if (value == null || value.equals(0)){
+public class Time {
+    private final LocalTime value;
+
+    public Time(LocalTime value) {
+        if (value == null || value.equals(LocalTime.of(0,0,0))){
             throw new IllegalArgumentException("The Time value cannot be Null");
         }
         this.value = value;
     }
 
-    public Integer getValue() {
+    public LocalTime getValue() {
         return value;
     }
 }

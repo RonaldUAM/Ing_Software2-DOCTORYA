@@ -2,9 +2,7 @@ package com.doctorya.Demo.infraestructure.driver_adapters.mysqlDB_repository.pat
 
 import com.doctorya.Demo.infraestructure.driver_adapters.mysqlDB_repository.medical_insurance.MedicalInsuranceData;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 
@@ -12,7 +10,9 @@ import java.time.LocalDate;
 @Table(name = "Patients")
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder(toBuilder = true)
 @Getter
+@ToString
 public class PatientData {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

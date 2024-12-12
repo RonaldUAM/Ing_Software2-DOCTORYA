@@ -2,6 +2,7 @@ package com.doctorya.Demo.infraestructure.driver_adapters.mysqlDB_repository.med
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +12,7 @@ import java.time.LocalDate;
 @Table(name = "Medical_Insurance")
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder(toBuilder = true)
 @Getter
 public class MedicalInsuranceData {
     @Id

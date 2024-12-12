@@ -13,6 +13,12 @@ import java.util.Optional;
 public class MedicalDataImpl implements MedicalInsuranceGateway {
     private final MedicalIsuranceDataMysqlRepository repository;
     private final MapperMedicalInsurance mapper;
+
+    @Override
+    public MedicalInsurance save(MedicalInsurance medicalInsurance) {
+        return mapper.toDo(repository.save(mapper.toData(medicalInsurance)));
+    }
+
     @Override
     public MedicalInsurance findById(Long id) {
         Optional<MedicalInsuranceData> insuranceData = repository.findById(id);

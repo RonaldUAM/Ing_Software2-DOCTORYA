@@ -20,4 +20,16 @@ public class MapperDoctor {
                 .phone(new Phone(doctorData.getPhone()))
                 .build();
     }
+
+    public DoctorData toData(Doctor doctor){
+        return new DoctorData().toBuilder()
+                .id(doctor.getId().getValue())
+                .name(doctor.getName().getvalue())
+                .identification(doctor.getIdentification().getValue())
+                .medical_license(doctor.getMedicalLicense().getValue())
+                .specialty(doctor.getSpecialty().getValue())
+                .email(doctor.getEmaill().getValue())
+                .phone(doctor.getPhone().getValue())
+                .build();
+    }
 }

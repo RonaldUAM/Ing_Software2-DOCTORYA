@@ -11,4 +11,8 @@ public class StartDate {
         }
         this.value = value;
     }
+
+    public LocalDate getValue() {
+        return value;
+    }
 }

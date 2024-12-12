@@ -18,4 +18,14 @@ public class MedicalRecordImpl implements MedicalRecordGateway {
         Optional<MedicalRecordData> medicalRecordData = repository.findById(id);
         return medicalRecordData.isEmpty() ? new MedicalRecord.Builder().build() : mapper.toDo(medicalRecordData.get());
     }
+
+    @Override
+    public MedicalRecord saveOrUpdate(MedicalRecord medicalRecord) {
+        return mapper.toDo(repository.save(mapper.toData(medicalRecord)));
+    }
+
+    @Override
+    public void delete(Long id) {
+        repository.deleteById(id);
+    }
 }
