@@ -21,6 +21,9 @@ configurations {
 
 repositories {
 	mavenCentral()
+	maven {
+		url 'https://oss.sonatype.org/content/repositories/releases/'
+	}
 }
 
 dependencies {
