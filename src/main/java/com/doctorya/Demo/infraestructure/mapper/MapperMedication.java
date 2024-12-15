@@ -27,4 +27,18 @@ public class MapperMedication {
                 .medicalRecord(mapperMedicalRecord.toDo(medicationData.getMedicalRecordData()))
                 .build();
     }
+
+    public MedicationData toData(Medication medication){
+        return new MedicationData().toBuilder()
+                .id(medication.getId().getValue())
+                .name(medication.getName().getvalue())
+                .active_ingredient(medication.getActiveIngredient().getValue())
+                .dosage_form(medication.getDosageForm().getValue())
+                .dosage(medication.getDosage().getValue())
+                .usage_instructions(medication.getUsasgeInstruction().getValue())
+                .treatment_duration(medication.getTreatmentDuration().getValue())
+                .status(medication.getStatus().getValue())
+                .medicalRecordData(mapperMedicalRecord.toData(medication.getMedicalRecord()))
+                .build();
+    }
 }

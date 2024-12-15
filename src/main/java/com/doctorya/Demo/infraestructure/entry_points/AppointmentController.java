@@ -32,7 +32,6 @@ public class AppointmentController {
         AppointmentDtoFind appointmentDtoFind1 = appointmentUseCase.createAppointment(appointmentDtoCreate);
         if (appointmentDtoFind1.getId() == null){
             return new ResponseEntity<>(new Wrapper<>("Appointment", List.of()), HttpStatus.NOT_ACCEPTABLE);
-
         }
         return new ResponseEntity<>(new Wrapper<>("Appoinment", List.of(appointmentDtoFind1)),HttpStatus.CREATED);
     }
@@ -50,4 +49,5 @@ public class AppointmentController {
     public ResponseEntity<Wrapper<AppointmentDtoFind>> findByPatient(@RequestParam("patient_id") Long patient_id){
         return new ResponseEntity<>(new Wrapper<>("Appointment -> [Patient]",appointmentUseCase.findByPatient(patient_id)),HttpStatus.OK);
     }
-}//MEDICALRECORD
+
+}

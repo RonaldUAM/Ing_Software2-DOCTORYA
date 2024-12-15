@@ -19,4 +19,15 @@ public class MedicationImpl implements MedicationGateway {
         return medicationData.isEmpty() ?
                 new Medication.Builder().build() : mapper.toDo(medicationData.get());
     }
+
+    @Override
+    public Medication saveOrUpdate(Medication medication) {
+        return mapper.toDo(repository.save(mapper.toData(medication)));
+    }
+
+    @Override
+    public void delete(Long id) {
+        repository.deleteById(id);
+    }
+
 }

@@ -11,7 +11,9 @@ import java.time.LocalTime;
 import java.util.List;
 
 public interface AppointmentDataMysqlRepository extends JpaRepository<AppointmentData,Long> {
+    
     List<AppointmentData> findByPatient_Id(Long patientId);
+
     @Query("SELECT d FROM DoctorData d " +
             "WHERE d NOT IN (SELECT a.doctor FROM AppointmentData a WHERE a.date = :date AND a.time = :time)")
     List<DoctorData> findDoctorsWithoutAppointmentsAt(@Param("date") LocalDate date, @Param("time") LocalTime time);
