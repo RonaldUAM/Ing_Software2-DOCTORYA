@@ -3,6 +3,7 @@ package com.doctorya.Demo.infraestructure.driver_adapters.mysqlDB_repository.med
 import com.doctorya.Demo.infraestructure.driver_adapters.mysqlDB_repository.medical_record.MedicalRecordData;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -11,12 +12,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+@Builder(toBuilder = true)
 public class MedicationData {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String Name;
+    private String name;
     private String active_ingredient;
     private String dosage_form;
     private String dosage;
