@@ -22,6 +22,7 @@ public class AppointmentDataImpl implements AppointmentGateway {
     private final MapperAppointment mapper;
     private final MapperPatient mapperPatient;
     private final MapperDoctor mapperDoctor;
+
     @Override
     public List<Appointment> findByPatient(Long patient_id) {
         return repository.findByPatient_Id(patient_id).stream().map(mapper::toDo).toList();
